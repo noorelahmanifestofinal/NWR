@@ -61,10 +61,12 @@
   <a href="#birthright">Vendor</a>
   <a href="#life-backed-value">Life-Backed Value</a>
   <a href="#ecosystem">NWR Ecosystem</a>
-  <a href="#nwr5-benefits">NWR5 Benefits</a> <!-- New link here -->
+  <a href="#how-to-endorse">How to Endorse</a> <!-- ← new -->
   <a href="#verify">Verify</a>
   <a href="#join">Join Us</a>
+  <a href="https://bscscan.com/address/0xAa8155FE44F791EAFd06933cA76119D9d62E9DE0#writeContract" target="_blank">Write Contract</a>
 </nav>
+
 
   <section id="home">
     <h1>Why NWR Was Born</h1>
@@ -388,6 +390,138 @@
   </table>
 </section>
 
+<section id="how-to-endorse">
+  <h2>🧭 How to Use the Level Endorsement Contract</h2>
+  <p>Endorsing levels is simple: bring your NWR5, follow the steps, and the contract will handle price checks, rewards, badges, and logs on-chain.</p>
+
+  <div class="contracts">
+    <h3>🔗 Contract & Token Links</h3>
+    <p><strong>BSC</strong></p>
+    <code>NWRLevelContributionVault (BSC): 
+      <a href="https://bscscan.com/address/0xAa8155FE44F791EAFd06933cA76119D9d62E9DE0#readContract" target="_blank">Read</a> • 
+      <a href="https://bscscan.com/address/0xAa8155FE44F791EAFd06933cA76119D9d62E9DE0#writeContract" target="_blank">Write</a>
+    </code>
+    <code>NWR5 (BSC): 
+      <a href="https://bscscan.com/address/0x82bec0319B99DeC808330B4a490Aef102f7Fbec7#readContract" target="_blank">Read</a> • 
+      <a href="https://bscscan.com/address/0x82bec0319B99DeC808330B4a490Aef102f7Fbec7#writeContract" target="_blank">Write</a>
+    </code>
+
+    <p><strong>Polygon</strong></p>
+    <code>NWRLevelContributionVault (Polygon): 
+      <a href="https://polygonscan.com/address/0x792BAEbe9F51EBD0f66c764A9C361D877172F146#readContract" target="_blank">Read</a> • 
+      <a href="https://polygonscan.com/address/0x792BAEbe9F51EBD0f66c764A9C361D877172F146#writeContract" target="_blank">Write</a>
+    </code>
+    <code>NWR5 (Polygon): 
+      <a href="https://polygonscan.com/address/0xdD88FbF19196aa8C0B49E5098fB3Ac6dE32cB85a#readContract" target="_blank">Read</a> • 
+      <a href="https://polygonscan.com/address/0xdD88FbF19196aa8C0B49E5098fB3Ac6dE32cB85a#writeContract" target="_blank">Write</a>
+    </code>
+  </div>
+
+  <h3>🧱 Prerequisites</h3>
+  <ul>
+    <li>🔐 A wallet connected to <strong>BSC</strong> or <strong>Polygon</strong>.</li>
+    <li>🪙 Enough <strong>NWR5</strong> to cover the level price (see below).</li>
+    <li>✅ <strong>Approve</strong> the vault contract to spend your NWR5 before endorsing:
+      <br>Use your NWR5 token’s <code>approve(spender, amount)</code> in the explorer “Write” tab.
+      <br>Spender = vault address above • Amount = price for the level you’re endorsing.
+    </li>
+  </ul>
+
+  <div class="contracts">
+    <h3>💵 Level Prices (contract-enforced)</h3>
+    <p><strong>User Levels (1 → 11)</strong>: 10,000 → 25,000 → 50,000 → 100,000 → 200,000 → 300,000 → 450,000 → 600,000 → 750,000 → 900,000 → <strong>1,000,000</strong> NWR5</p>
+    <p><strong>DAO Levels (1 → 11)</strong>: 100,000,000 → 200,000,000 → … → 900,000,000 → 950,000,000 → <strong>1,000,000,000</strong> NWR5</p>
+    <p>💡 The contract returns <strong>50%</strong> of the price back to the endorser as a reward—automatically.</p>
+  </div>
+
+  <h3>👤 Endorse a User Level</h3>
+  <ol>
+    <li>👁️ Check current level: <code>userLevel(address)</code> (Read tab).</li>
+    <li>🎯 Choose the next level (must be <em>current + 1</em> and ≤ 11). You can’t skip.</li>
+    <li>🪙 Approve NWR5 spending: <code>approve(vault, userPrice[level])</code> on the NWR5 token.</li>
+    <li>🖊️ Call vault: <code>endorseUserLevel(user, level)</code> (Write tab).</li>
+    <li>🎁 You instantly receive <strong>50%</strong> of the price back; the user levels up; badge may mint; logs emit on-chain.</li>
+  </ol>
+  <p>Rules the contract enforces:  
+    • You can’t endorse above <em>your own user level</em>.  
+    • Levels must be sequential.  
+    • Payment is in NWR5 only; transferFrom must succeed.
+  </p>
+
+  <h3>🏛️ Endorse a DAO Level</h3>
+  <ol>
+    <li>🧱 Check that the user is already <strong>user level 11</strong>.</li>
+    <li>👁️ Check user’s <code>daoLevel(address)</code>.</li>
+    <li>🎯 Choose the next DAO level (must be <em>current + 1</em> and ≤ 11).</li>
+    <li>🪙 Approve NWR5 spending: <code>approve(vault, daoPrice[level])</code> on the NWR5 token.</li>
+    <li>🖊️ Call vault: <code>endorseDaoLevel(user, level)</code> (Write tab).</li>
+    <li>🎁 You instantly receive <strong>50%</strong> back; user advances DAO level; optional vote eligibility is notified; logs emit.</li>
+  </ol>
+  <p>Rules the contract enforces:  
+    • You can’t endorse above <em>your own DAO level</em>.  
+    • User must be <strong>User L11</strong> before any DAO level.  
+    • Sequential only; payment in NWR5 must clear.
+  </p>
+
+  <div class="contracts">
+    <h3>🧩 Function Signatures</h3>
+    <code>endorseUserLevel(address user, uint8 level)</code>
+    <code>endorseDaoLevel(address user, uint8 level)</code>
+    <p>Helpful reads: <code>userLevel(user)</code>, <code>daoLevel(user)</code>, <code>getUserStats(user)</code></p>
+  </div>
+
+  <blockquote>
+    🤝 <strong>Endorsement = Solidarity.</strong> You lift someone up a level and the protocol thanks you back with 50%—everyone rises together.
+  </blockquote>
+
+  <h3>📊 Before &amp; After Debt-Free Money</h3>
+  <table style="width:100%; border-collapse: collapse; margin-top: 1rem; background: #fff;">
+    <thead style="background:#fff7dd;">
+      <tr>
+        <th style="padding:8px; border:1px solid #ddd;">🌍 Area</th>
+        <th style="padding:8px; border:1px solid #ddd;">💸 Before (Debt-Based Money)</th>
+        <th style="padding:8px; border:1px solid #ddd;">🌱 After (Debt-Free Money)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:8px; border:1px solid #ddd;">👨‍👩‍👧‍👦 Families</td>
+        <td style="padding:8px; border:1px solid #ddd;">Living paycheck to paycheck; trapped in loans</td>
+        <td style="padding:8px; border:1px solid #ddd;">🏡 Secure income; education &amp; savings possible</td>
+      </tr>
+      <tr>
+        <td style="padding:8px; border:1px solid #ddd;">🏘️ Communities</td>
+        <td style="padding:8px; border:1px solid #ddd;">Small businesses struggle; value drains to banks</td>
+        <td style="padding:8px; border:1px solid #ddd;">🤝 Local trade thrives; value stays in the community</td>
+      </tr>
+      <tr>
+        <td style="padding:8px; border:1px solid #ddd;">🇺🇳 Nations</td>
+        <td style="padding:8px; border:1px solid #ddd;">Selling resources to pay foreign debt</td>
+        <td style="padding:8px; border:1px solid #ddd;">📈 National wealth invested back into citizens</td>
+      </tr>
+      <tr>
+        <td style="padding:8px; border:1px solid #ddd;">🌳 Nature</td>
+        <td style="padding:8px; border:1px solid #ddd;">Over-exploitation of land and water</td>
+        <td style="padding:8px; border:1px solid #ddd;">🌿 Sustainable use; reforestation &amp; clean energy</td>
+      </tr>
+      <tr>
+        <td style="padding:8px; border:1px solid #ddd;">❤️ Health</td>
+        <td style="padding:8px; border:1px solid #ddd;">Healthcare expensive; stress-related illness</td>
+        <td style="padding:8px; border:1px solid #ddd;">🩺 Affordable care; healthier food &amp; lifestyles</td>
+      </tr>
+      <tr>
+        <td style="padding:8px; border:1px solid #ddd;">✌️ Peace</td>
+        <td style="padding:8px; border:1px solid #ddd;">Conflicts over resources &amp; repayments</td>
+        <td style="padding:8px; border:1px solid #ddd;">🤍 Fair trade; stability and cooperation</td>
+      </tr>
+      <tr>
+        <td style="padding:8px; border:1px solid #ddd;">💡 Human Potential</td>
+        <td style="padding:8px; border:1px solid #ddd;">Creativity stalled by lack of funds</td>
+        <td style="padding:8px; border:1px solid #ddd;">🎨 Innovation &amp; arts flourish; children dream bigger</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
 
   <section id="verify">
     <h2>Verify for Yourself</h2>
