@@ -72,7 +72,8 @@
   <a href="#vendor">Vendor</a>
   <a href="#life-backed-value">Life-Backed Value</a>
   <a href="#ecosystem">NWR Ecosystem</a>
-  <a href="#how-to-endorse">How to Endorse</a> <!-- ← new -->
+  <a href="#swap-4">4swap</a>
+  <a href="#how-to-endorse">How to Endorse</a>
   <a href="#verify">Verify</a>
   <a href="#join">Join Us</a>
   <a href="https://bscscan.com/address/0xAa8155FE44F791EAFd06933cA76119D9d62E9DE0#writeContract" target="_blank" rel="noopener noreferrer">Write Contract</a>
@@ -286,6 +287,145 @@
   </div>
 </section>
 
+<!-- 4swap section with Phase Price mini-table -->
+<section id="swap-4">
+  <h2>
+    🔄 4swap — Join the DAO in 3 Steps
+    <a href="https://bscscan.com/address/0x0fAA9A6e089D68e3DC0C0F8f75Fa6b610e2f0Dd1#writeContract"
+       target="_blank" rel="noopener noreferrer"
+       style="display:inline-block; padding:8px 14px; background:#f0b90b; color:#fff; text-decoration:none; border-radius:5px; font-weight:bold; font-size:0.9em; margin-left:10px;">
+       🖊️ BscScan Write Contract
+    </a>
+  </h2>
+
+  <div class="contracts">
+    <p><strong>Contract (BSC):</strong> <code>DAOOnboardingSwap 111111</code> — 
+      <a href="https://bscscan.com/address/0x0fAA9A6e089D68e3DC0C0F8f75Fa6b610e2f0Dd1" target="_blank" rel="noopener noreferrer">0x0fAA9…0Dd1</a>
+    </p>
+    <p><strong>What you get:</strong> On success, the contract sends you a fixed reward of <code>7,454,385,000 NWR5</code> automatically.</p>
+  </div>
+
+  <h3>✅ What you need</h3>
+  <ul>
+    <li>👛 A wallet on <strong>BSC mainnet</strong> (BNB Chain).</li>
+    <li>⛽ A little <strong>BNB</strong> for gas + the swap amount (USD value per phase is built-in).</li>
+  </ul>
+
+  <h3>1️⃣ Open, Connect, Select</h3>
+  <ol>
+    <li>🔗 Open the button above (BscScan “Write Contract”).</li>
+    <li>🔌 Click <strong>“Connect to Web3”</strong>.</li>
+    <li>🧭 Find the <strong><code>swap()</code></strong> function. It’s <em>payable</em> (sends BNB).</li>
+  </ol>
+
+  <h3>2️⃣ How much BNB to send?</h3>
+  <p>💡 The contract looks up the live BNB/USD price (Chainlink) and compares it to the current phase’s USD price. Just send enough BNB for the phase; <strong>extra is refunded automatically</strong>.</p>
+  <div class="contracts">
+    <p><strong>Check current price (optional):</strong></p>
+    <ul>
+      <li>👓 In the <strong>Read Contract</strong> tab, call <code>getCurrentPhase()</code> — it returns <code>(phase, usdPrice)</code>.</li>
+      <li>📉 You can also see <code>remainingSpots()</code> and <code>totalSwaps</code>.</li>
+    </ul>
+    <p><em>Tip:</em> If you’re unsure, send a tiny bit more BNB — any excess is refunded within the same transaction.</p>
+  </div>
+
+  <!-- NEW: Phase Price mini-table -->
+  <h3>💵 Phase Prices & Caps</h3>
+  <table style="width:100%; border-collapse: collapse; margin-top: 0.5rem; background: #fff;">
+    <thead style="background:#fff7dd;">
+      <tr>
+        <th style="padding:8px; border:1px solid #ddd;">Phase</th>
+        <th style="padding:8px; border:1px solid #ddd;">USD Price</th>
+        <th style="padding:8px; border:1px solid #ddd;">Cumulative Spots Cap</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="padding:8px; border:1px solid #ddd;">1</td><td style="padding:8px; border:1px solid #ddd;">$10</td><td style="padding:8px; border:1px solid #ddd;">1,000</td></tr>
+      <tr><td style="padding:8px; border:1px solid #ddd;">2</td><td style="padding:8px; border:1px solid #ddd;">$15</td><td style="padding:8px; border:1px solid #ddd;">3,000</td></tr>
+      <tr><td style="padding:8px; border:1px solid #ddd;">3</td><td style="padding:8px; border:1px solid #ddd;">$20</td><td style="padding:8px; border:1px solid #ddd;">6,000</td></tr>
+      <tr><td style="padding:8px; border:1px solid #ddd;">4</td><td style="padding:8px; border:1px solid #ddd;">$25</td><td style="padding:8px; border:1px solid #ddd;">10,000</td></tr>
+      <tr><td style="padding:8px; border:1px solid #ddd;">5</td><td style="padding:8px; border:1px solid #ddd;">$30</td><td style="padding:8px; border:1px solid #ddd;">15,000</td></tr>
+      <tr><td style="padding:8px; border:1px solid #ddd;">6</td><td style="padding:8px; border:1px solid #ddd;">$35</td><td style="padding:8px; border:1px solid #ddd;">21,000</td></tr>
+      <tr><td style="padding:8px; border:1px solid #ddd;">7</td><td style="padding:8px; border:1px solid #ddd;">$40</td><td style="padding:8px; border:1px solid #ddd;">28,000</td></tr>
+      <tr><td style="padding:8px; border:1px solid #ddd;">8</td><td style="padding:8px; border:1px solid #ddd;">$45</td><td style="padding:8px; border:1px solid #ddd;">36,000</td></tr>
+      <tr><td style="padding:8px; border:1px solid #ddd;">9</td><td style="padding:8px; border:1px solid #ddd;">$50</td><td style="padding:8px; border:1px solid #ddd;">45,000</td></tr>
+      <tr><td style="padding:8px; border:1px solid #ddd;">10</td><td style="padding:8px; border:1px solid #ddd;">$55</td><td style="padding:8px; border:1px solid #ddd;">55,000</td></tr>
+      <tr><td style="padding:8px; border:1px solid #ddd;">11</td><td style="padding:8px; border:1px solid #ddd;">$60</td><td style="padding:8px; border:1px solid #ddd;">111,111</td></tr>
+    </tbody>
+  </table>
+
+  <h3>3️⃣ Press Swap</h3>
+  <ol>
+    <li>✍️ In <strong>swap()</strong>, click <strong>“Write”</strong>.</li>
+    <li>🔐 Your wallet pops up — confirm.</li>
+    <li>🎉 Done! You receive NWR5 instantly, and your spot is recorded on-chain.</li>
+  </ol>
+
+  <h3>ℹ️ Good to know</h3>
+  <ul>
+    <li>👥 Max members: <strong>111,111</strong>. If full, the contract reverts.</li>
+    <li>🏷️ Your phase is stored; view with <code>userPhase(yourAddress)</code>.</li>
+    <li>📦 Your reward amount is <code>nwr5Received(yourAddress)</code> (fixed per swap).</li>
+    <li>🔁 Later, you can migrate yourself with <code>migrateSelf()</code> if/when a next contract is configured.</li>
+  </ul>
+
+  <div class="contracts">
+    <h3>🔗 Quick Links</h3>
+    <code>Write: <a href="https://bscscan.com/address/0x0fAA9A6e089D68e3DC0C0F8f75Fa6b610e2f0Dd1#writeContract" target="_blank" rel="noopener noreferrer">swap()</a> • <a href="https://bscscan.com/address/0x0fAA9A6e089D68e3DC0C0F8f75Fa6b610e2f0Dd1#writeContract" target="_blank" rel="noopener noreferrer">migrateSelf()</a></code>
+    <code>Read: <a href="https://bscscan.com/address/0x0fAA9A6e089D68e3DC0C0F8f75Fa6b610e2f0Dd1#readContract" target="_blank" rel="noopener noreferrer">getCurrentPhase()</a> • <a href="https://bscscan.com/address/0x0fAA9A6e089D68e3DC0C0F8f75Fa6b610e2f0Dd1#readContract" target="_blank" rel="noopener noreferrer">remainingSpots()</a> • <a href="https://bscscan.com/address/0x0fAA9A6e089D68e3DC0C0F8f75Fa6b610e2f0Dd1#readContract" target="_blank" rel="noopener noreferrer">userPhase()</a></code>
+  </div>
+
+  <!-- NEW: Names of all 11 levels and DAO levels -->
+  <h3>🏷️ Level Names & Prices</h3>
+  <div class="contracts">
+    <p><strong>User Levels (sequential only):</strong></p>
+    <table style="width:100%; border-collapse: collapse; background:#fff;">
+      <thead style="background:#fff7dd;">
+        <tr>
+          <th style="padding:8px; border:1px solid #ddd;">Name</th>
+          <th style="padding:8px; border:1px solid #ddd;">Price (NWR5)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:8px; border:1px solid #ddd;">User L1</td><td style="padding:8px; border:1px solid #ddd;">10,000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">User L2</td><td style="padding:8px; border:1px solid #ddd;">25,000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">User L3</td><td style="padding:8px; border:1px solid #ddd;">50,000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">User L4</td><td style="padding:8px; border:1px solid #ddd;">100,000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">User L5</td><td style="padding:8px; border:1px solid #ddd;">200,000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">User L6</td><td style="padding:8px; border:1px solid #ddd;">300,000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">User L7</td><td style="padding:8px; border:1px solid #ddd;">450,000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">User L8</td><td style="padding:8px; border:1px solid #ddd;">600,000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">User L9</td><td style="padding:8px; border:1px solid #ddd;">750,000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">User L10</td><td style="padding:8px; border:1px solid #ddd;">900,000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">User L11</td><td style="padding:8px; border:1px solid #ddd;">1,000,000</td></tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top:12px;"><strong>DAO Levels (require User L11 first):</strong></p>
+    <table style="width:100%; border-collapse: collapse; background:#fff;">
+      <thead style="background:#fff7dd;">
+        <tr>
+          <th style="padding:8px; border:1px solid #ddd;">Name</th>
+          <th style="padding:8px; border:1px solid #ddd;">Price (NWR5)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:8px; border:1px solid #ddd;">DAO L1</td><td style="padding:8px; border:1px solid #ddd;">100,000,000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">DAO L2</td><td style="padding:8px; border:1px solid #ddd;">200,000,000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">DAO L3</td><td style="padding:8px; border:1px solid #ddd;">300,000,000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">DAO L4</td><td style="padding:8px; border:1px solid #ddd;">400,000,000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">DAO L5</td><td style="padding:8px; border:1px solid #ddd;">500,000,000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">DAO L6</td><td style="padding:8px; border:1px solid #ddd;">600,000,000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">DAO L7</td><td style="padding:8px; border:1px solid #ddd;">700,000,000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">DAO L8</td><td style="padding:8px; border:1px solid #ddd;">800,000,000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">DAO L9</td><td style="padding:8px; border:1px solid #ddd;">900,000,000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">DAO L10</td><td style="padding:8px; border:1px solid #ddd;">950,000,000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">DAO L11</td><td style="padding:8px; border:1px solid #ddd;">1,000,000,000</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section id="nwr5-benefits">
   <h2>🌍 NWR5 — Swap for Freedom, Peace, and a Better World</h2>
 
@@ -354,7 +494,7 @@
   <!-- Before & After Table -->
   <h3>📊 Before & After Debt-Free Money</h3>
   <table style="width:100%; border-collapse: collapse; margin-top: 1rem; background: #fff;">
-    <thead style="background:#fff7dd;">
+    <thead style="background:#fff7dd%;">
       <tr>
         <th style="padding:8px; border:1px solid #ddd;">🌍 Area</th>
         <th style="padding:8px; border:1px solid #ddd;">💸 Before (Debt-Based Money)</th>
@@ -395,7 +535,7 @@
       <tr>
         <td style="padding:8px; border:1px solid #ddd;">💡 Human Potential</td>
         <td style="padding:8px; border:1px solid #ddd;">Creativity stalled by lack of funds</td>
-        <td style="padding:8px; border:1px solid #ddd;">🎨 Innovation & arts flourish; children dream bigger</td>
+        <td style="padding:8px; border:1px solid #ddd;">🎨 Innovation &amp; arts flourish; children dream bigger</td>
       </tr>
     </tbody>
   </table>
@@ -448,7 +588,7 @@
   <div class="contracts">
     <h3>💵 Level Prices (contract-enforced)</h3>
     <p><strong>User Levels (1 → 11)</strong>: 10,000 → 25,000 → 50,000 → 100,000 → 200,000 → 300,000 → 450,000 → 600,000 → 750,000 → 900,000 → <strong>1,000,000</strong> NWR5</p>
-    <p><strong>DAO Levels (1 → 11)</strong>: 100,000,000 → 200,000,000 → … → 900,000,000 → 950,000,000 → <strong>1,000,000,000</strong> NWR5</p>
+    <p><strong>DAO Levels (1 → 11)</strong>: 100,000,000 → 200,000,000 → 300,000,000 → 400,000,000 → 500,000,000 → 600,000,000 → 700,000,000 → 800,000,000 → 900,000,000 → 950,000,000 → <strong>1,000,000,000</strong> NWR5</p>
     <p>💡 The contract returns <strong>50%</strong> of the price back to the endorser as a reward—automatically.</p>
   </div>
 
