@@ -740,6 +740,110 @@
   <!-- <<< END NEW block -->
 </section>
 
+<!-- >>> INSERTED NEW DAILY CLAIM SECTION ABOVE VERIFY <<< -->
+<section id="daily-claim">
+  <h2>
+    🎁 NWR5 Daily Claim — Simple Guide
+    <!-- Quick buttons (match your existing CTA style) -->
+    <a href="https://bscscan.com/address/0xC3615F9B08B5cf844C5E7326668241A35983BA03#writeContract" target="_blank" rel="noopener noreferrer"
+       style="display:inline-block; padding:8px 14px; background:#f0b90b; color:#fff; text-decoration:none; border-radius:5px; font-weight:bold; font-size:0.9em; margin-left:10px;">
+       🖊️ BSC Write
+    </a>
+    <a href="https://polygonscan.com/address/0x022c5fE46Cd61EA6A5822Af7881F02e725F2262b#writeContract" target="_blank" rel="noopener noreferrer"
+       style="display:inline-block; padding:8px 14px; background:#f0b90b; color:#fff; text-decoration:none; border-radius:5px; font-weight:bold; font-size:0.9em; margin-left:8px;">
+       🖊️ Polygon Write
+    </a>
+  </h2>
+
+  <div class="contracts">
+    <p><strong>Contracts</strong></p>
+    <code>BSC: <a href="https://bscscan.com/address/0xC3615F9B08B5cf844C5E7326668241A35983BA03#readContract" target="_blank" rel="noopener noreferrer">0xC3615F9B08B5cf844C5E7326668241A35983BA03</a></code>
+    <code>Polygon: <a href="https://polygonscan.com/address/0x022c5fE46Cd61EA6A5822Af7881F02e725F2262b#readContract" target="_blank" rel="noopener noreferrer">0x022c5fE46Cd61EA6A5822Af7881F02e725F2262b</a></code>
+  </div>
+
+  <h3>🧲 Step 0 — Sync Your Level (first time)</h3>
+  <ol>
+    <li>🔗 Open the <strong>Write</strong> button above.</li>
+    <li>🔌 <strong>Connect</strong> wallet.</li>
+    <li>📥 Call <code>selfMigrate()</code> to import your <em>User</em> & <em>DAO</em> level from the Level Vault.</li>
+  </ol>
+
+  <h3>🗓️ Step 1 — User Daily Claim</h3>
+  <ol>
+    <li>🎯 Call <code>claim()</code> (once every 24h).</li>
+    <li>📈 Your <strong>User Level (1–11)</strong> sets base reward and jackpot odds.</li>
+    <li>🎉 Jackpot chance grows with level (see table below).</li>
+  </ol>
+
+  <div class="contracts">
+    <h4>🎰 User Claim — Odds by Level</h4>
+    <table style="width:100%; border-collapse: collapse; background:#fff;">
+      <thead style="background:#fff7dd;">
+        <tr>
+          <th style="padding:8px; border:1px solid #ddd;">🌱 Level</th>
+          <th style="padding:8px; border:1px solid #ddd;">🎲 Jackpot Chance</th>
+          <th style="padding:8px; border:1px solid #ddd;">🎁 Base Reward (≈ NWR5)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:8px; border:1px solid #ddd;">1</td><td style="padding:8px; border:1px solid #ddd;">10%</td><td style="padding:8px; border:1px solid #ddd;">~1.168</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">2</td><td style="padding:8px; border:1px solid #ddd;">14%</td><td style="padding:8px; border:1px solid #ddd;">~2.168</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">3</td><td style="padding:8px; border:1px solid #ddd;">18%</td><td style="padding:8px; border:1px solid #ddd;">~3.168</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">4</td><td style="padding:8px; border:1px solid #ddd;">22%</td><td style="padding:8px; border:1px solid #ddd;">~4.168</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">5</td><td style="padding:8px; border:1px solid #ddd;">26%</td><td style="padding:8px; border:1px solid #ddd;">~5.168</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">6</td><td style="padding:8px; border:1px solid #ddd;">30%</td><td style="padding:8px; border:1px solid #ddd;">~6.168</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">7</td><td style="padding:8px; border:1px solid #ddd;">34%</td><td style="padding:8px; border:1px solid #ddd;">~7.168</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">8</td><td style="padding:8px; border:1px solid #ddd;">38%</td><td style="padding:8px; border:1px solid #ddd;">~8.168</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">9</td><td style="padding:8px; border:1px solid #ddd;">42%</td><td style="padding:8px; border:1px solid #ddd;">~9.168</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">10</td><td style="padding:8px; border:1px solid #ddd;">46%</td><td style="padding:8px; border:1px solid #ddd;">~10.168</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ddd;">11</td><td style="padding:8px; border:1px solid #ddd;">50%</td><td style="padding:8px; border:1px solid #ddd;">~11.168</td></tr>
+      </tbody>
+    </table>
+    <p style="margin:8px 0 0 0;">💥 <strong>Jackpot</strong> payout ≈ <strong>10,168.168 NWR5</strong> (hits when the random roll succeeds).</p>
+  </div>
+
+  <h3>🏛️ Step 2 — DAO Daily Reward (optional)</h3>
+  <ol>
+    <li>🏷️ Requires a <strong>DAO level (1–11)</strong>.</li>
+    <li>💼 Keep NWR5 in your wallet — reward scales with your balance.</li>
+    <li>🖊️ Call <code>claimDaoReward()</code> (once every 24h).</li>
+  </ol>
+  <div class="contracts">
+    <p><strong>Formula:</strong> <code>reward = balance × daoLevel / 3000</code></p>
+    <p>🧮 Example: 30,000 NWR5 & DAO L3 → 30,000 × 3 / 3000 = <strong>30 NWR5/day</strong>.</p>
+  </div>
+
+  <h3>🔗 Quick Links</h3>
+  <div class="contracts">
+    <p><strong>BSC</strong></p>
+    <code>Write: <a href="https://bscscan.com/address/0xC3615F9B08B5cf844C5E7326668241A35983BA03#writeContract" target="_blank" rel="noopener noreferrer">selfMigrate()</a> •
+      <a href="https://bscscan.com/address/0xC3615F9B08B5cf844C5E7326668241A35983BA03#writeContract" target="_blank" rel="noopener noreferrer">claim()</a> •
+      <a href="https://bscscan.com/address/0xC3615F9B08B5cf844C5E7326668241A35983BA03#writeContract" target="_blank" rel="noopener noreferrer">claimDaoReward()</a></code>
+    <code>Read: <a href="https://bscscan.com/address/0xC3615F9B08B5cf844C5E7326668241A35983BA03#readContract" target="_blank" rel="noopener noreferrer">hasClaimedUser()</a> •
+      <a href="https://bscscan.com/address/0xC3615F9B08B5cf844C5E7326668241A35983BA03#readContract" target="_blank" rel="noopener noreferrer">hasClaimedDao()</a> •
+      <a href="https://bscscan.com/address/0xC3615F9B08B5cf844C5E7326668241A35983BA03#readContract" target="_blank" rel="noopener noreferrer">getAvailableRewards()</a></code>
+
+    <p><strong>Polygon</strong></p>
+    <code>Write: <a href="https://polygonscan.com/address/0x022c5fE46Cd61EA6A5822Af7881F02e725F2262b#writeContract" target="_blank" rel="noopener noreferrer">selfMigrate()</a> •
+      <a href="https://polygonscan.com/address/0x022c5fE46Cd61EA6A5822Af7881F02e725F2262b#writeContract" target="_blank" rel="noopener noreferrer">claim()</a> •
+      <a href="https://polygonscan.com/address/0x022c5fE46Cd61EA6A5822Af7881F02e725F2262b#writeContract" target="_blank" rel="noopener noreferrer">claimDaoReward()</a></code>
+    <code>Read: <a href="https://polygonscan.com/address/0x022c5fE46Cd61EA6A5822Af7881F02e725F2262b#readContract" target="_blank" rel="noopener noreferrer">hasClaimedUser()</a> •
+      <a href="https://polygonscan.com/address/0x022c5fE46Cd61EA6A5822Af7881F02e725F2262b#readContract" target="_blank" rel="noopener noreferrer">hasClaimedDao()</a> •
+      <a href="https://polygonscan.com/address/0x022c5fE46Cd61EA6A5822Af7881F02e725F2262b#readContract" target="_blank" rel="noopener noreferrer">getAvailableRewards()</a></code>
+  </div>
+
+  <div class="contracts">
+    <h4>🧠 Quick memory</h4>
+    <ul>
+      <li>🧲 <strong>Sync</strong> once → <code>selfMigrate()</code></li>
+      <li>🎯 <strong>Daily</strong> user reward → <code>claim()</code></li>
+      <li>🏛️ <strong>DAO</strong> daily reward → <code>claimDaoReward()</code></li>
+      <li>⏰ Each has its own <strong>24h timer</strong></li>
+    </ul>
+  </div>
+</section>
+<!-- <<< END INSERTED DAILY CLAIM SECTION >>> -->
+
   <section id="verify">
     <h2>Verify for Yourself</h2>
     <p>Every contract can be verified on-chain. Check our GitHub, Polygonscan, BscScan, or even IPFS/IPNS. This is a truth ledger. Immutable. Transparent. Yours.</p>
