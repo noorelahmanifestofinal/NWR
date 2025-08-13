@@ -844,6 +844,118 @@
 </section>
 <!-- <<< END INSERTED DAILY CLAIM SECTION >>> -->
 
+  <!-- >>> INSERTED NEW HOURLY DAO CLAIM SECTION ABOVE VERIFY <<< -->
+<section id="hourly-dao-claim">
+  <h2>
+    🌙 NWR5 Hourly DAO Claim — Moon-Weighted
+    <a href="https://bscscan.com/address/0xDf62C74cdB1bD907FA729523A254B7583fae0beC#writeContract"
+       target="_blank" rel="noopener noreferrer"
+       style="display:inline-block; padding:8px 14px; background:#f0b90b; color:#fff; text-decoration:none; border-radius:5px; font-weight:bold; font-size:0.9em; margin-left:10px;">
+       🖊️ BSC Write
+    </a>
+    <a href="https://polygonscan.com/address/0xd9CA38f2Ad63dB20d6ac6A785a8dC1551eFb217f#writeContract"
+       target="_blank" rel="noopener noreferrer"
+       style="display:inline-block; padding:8px 14px; background:#f0b90b; color:#fff; text-decoration:none; border-radius:5px; font-weight:bold; font-size:0.9em; margin-left:8px;">
+       🖊️ Polygon Write
+    </a>
+  </h2>
+
+  <div class="contracts">
+    <p><strong>What this is (simple):</strong></p>
+    <ul>
+      <li>⏰ Claim a DAO reward <strong>every hour</strong> (cooldown: 1h).</li>
+      <li>🏛️ You need a <strong>DAO Level (1–11)</strong> and some <strong>NWR5</strong> in your wallet.</li>
+      <li>🌖 Reward scales with the <strong>moon phase</strong> — about <strong>90% at new moon</strong> up to <strong>120% at full moon</strong>, then back down.</li>
+    </ul>
+  </div>
+
+  <div class="contracts">
+    <p><strong>Contracts</strong></p>
+    <code>BSC (Hourly + Moon): <a href="https://bscscan.com/address/0xDf62C74cdB1bD907FA729523A254B7583fae0beC#code" target="_blank" rel="noopener noreferrer">0xDf62C74cdB1bD907FA729523A254B7583fae0beC</a></code>
+    <code>Polygon (Hourly + Moon): <a href="https://polygonscan.com/address/0xd9CA38f2Ad63dB20d6ac6A785a8dC1551eFb217f#code" target="_blank" rel="noopener noreferrer">0xd9CA38f2Ad63dB20d6ac6A785a8dC1551eFb217f</a></code>
+  </div>
+
+  <h3>🧲 Step 0 — Sync Your Levels (first time)</h3>
+  <ol>
+    <li>🔌 Open the <strong>Write</strong> button above & connect wallet.</li>
+    <li>⬇️ Call <code>selfMigrate()</code> to import your <em>User</em> & <em>DAO</em> levels from the Level Vault.</li>
+  </ol>
+
+  <h3>⏳ Step 1 — Check Your Timer (optional)</h3>
+  <ol>
+    <li>👁️ In the <strong>Read</strong> tab, call <code>hasClaimedDao(yourAddress)</code>.</li>
+    <li>✅ If it returns <code>false</code>, you’re clear to claim now.</li>
+  </ol>
+
+  <h3>🚀 Step 2 — Hourly DAO Claim</h3>
+  <ol>
+    <li>🖊️ Call <code>claimDaoReward()</code> (once per hour).</li>
+    <li>💼 Reward uses your <strong>wallet NWR5 balance</strong> and your <strong>DAO Level</strong>.</li>
+    <li>🌙 It’s multiplied by the current <strong>moon multiplier</strong>.</li>
+  </ol>
+
+  <div class="contracts">
+    <h4>🔢 Formula & Examples</h4>
+    <p><code>base = balance × daoLevel / 3000</code><br>
+       <code>final = base × (moonBP / 10000)</code> where <code>moonBP</code> swings between <strong>9000</strong> (90%) and <strong>12000</strong> (120%).</p>
+    <p>🧮 Example (30,000 NWR5, DAO L3):<br>
+       Base = 30,000 × 3 / 3000 = <strong>30</strong> NWR5/hour</p>
+    <ul style="margin:8px 0 0 16px;">
+      <li>🌑 New moon (~90%): <strong>27</strong> NWR5</li>
+      <li>🌕 Full moon (~120%): <strong>36</strong> NWR5</li>
+    </ul>
+  </div>
+
+  <div class="contracts">
+    <h4>🔍 Helpful Reads</h4>
+    <ul>
+      <li>🌗 <code>moonMultiplierBP()</code> → current multiplier (basis points)</li>
+      <li>⏱️ <code>hasClaimedDao(address)</code> → is your cooldown active?</li>
+      <li>📚 <code>getUserClaimSnapshot(address)</code> → your totals & timestamps</li>
+    </ul>
+  </div>
+
+  <div class="contracts">
+    <h4>🛠️ Admin (Owner Only)</h4>
+    <p>Set the moon rhythm & bounds:</p>
+    <code>setMoonConfig(newMoonEpoch, 2_551_443, 9000, 12000)</code>
+    <ul>
+      <li>🕛 <code>newMoonEpoch</code> — UNIX time of a known new moon.</li>
+      <li>🌓 <code>2,551,443</code> — seconds in a synodic month (~29.53 days).</li>
+      <li>📉 <code>9000</code> — min multiplier (90%).</li>
+      <li>📈 <code>12000</code> — max multiplier (120%).</li>
+    </ul>
+  </div>
+
+  <h3>🔗 Quick Links</h3>
+  <div class="contracts">
+    <p><strong>BSC</strong></p>
+    <code>Write: <a href="https://bscscan.com/address/0xDf62C74cdB1bD907FA729523A254B7583fae0beC#writeContract" target="_blank" rel="noopener noreferrer">selfMigrate()</a> •
+      <a href="https://bscscan.com/address/0xDf62C74cdB1bD907FA729523A254B7583fae0beC#writeContract" target="_blank" rel="noopener noreferrer">claimDaoReward()</a></code>
+    <code>Read: <a href="https://bscscan.com/address/0xDf62C74cdB1bD907FA729523A254B7583fae0beC#readContract" target="_blank" rel="noopener noreferrer">moonMultiplierBP()</a> •
+      <a href="https://bscscan.com/address/0xDf62C74cdB1bD907FA729523A254B7583fae0beC#readContract" target="_blank" rel="noopener noreferrer">hasClaimedDao()</a> •
+      <a href="https://bscscan.com/address/0xDf62C74cdB1bD907FA729523A254B7583fae0beC#readContract" target="_blank" rel="noopener noreferrer">getUserClaimSnapshot()</a></code>
+
+    <p><strong>Polygon</strong></p>
+    <code>Write: <a href="https://polygonscan.com/address/0xd9CA38f2Ad63dB20d6ac6A785a8dC1551eFb217f#writeContract" target="_blank" rel="noopener noreferrer">selfMigrate()</a> •
+      <a href="https://polygonscan.com/address/0xd9CA38f2Ad63dB20d6ac6A785a8dC1551eFb217f#writeContract" target="_blank" rel="noopener noreferrer">claimDaoReward()</a></code>
+    <code>Read: <a href="https://polygonscan.com/address/0xd9CA38f2Ad63dB20d6ac6A785a8dC1551eFb217f#readContract" target="_blank" rel="noopener noreferrer">moonMultiplierBP()</a> •
+      <a href="https://polygonscan.com/address/0xd9CA38f2Ad63dB20d6ac6A785a8dC1551eFb217f#readContract" target="_blank" rel="noopener noreferrer">hasClaimedDao()</a> •
+      <a href="https://polygonscan.com/address/0xd9CA38f2Ad63dB20d6ac6A785a8dC1551eFb217f#readContract" target="_blank" rel="noopener noreferrer">getUserClaimSnapshot()</a></code>
+  </div>
+
+  <div class="contracts">
+    <h4>🧠 Quick memory</h4>
+    <ul>
+      <li>🧲 Sync once → <code>selfMigrate()</code></li>
+      <li>⏰ Claim hourly → <code>claimDaoReward()</code></li>
+      <li>🌙 Multiplier swings 90% → 120% with the moon</li>
+    </ul>
+  </div>
+</section>
+<!-- <<< END INSERTED HOURLY DAO CLAIM SECTION >>> -->
+
+
   <section id="verify">
     <h2>Verify for Yourself</h2>
     <p>Every contract can be verified on-chain. Check our GitHub, Polygonscan, BscScan, or even IPFS/IPNS. This is a truth ledger. Immutable. Transparent. Yours.</p>
